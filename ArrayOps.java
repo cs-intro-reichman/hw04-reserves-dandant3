@@ -35,8 +35,21 @@ public class ArrayOps {
     
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
-        // Write your code here:
-        return false;
+        boolean inThere = true ;
+        boolean tempname = false ;
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if(array1[i] == array2[j]){
+                    tempname = true;
+            }
+            if (tempname == false){
+                inThere = false;
+                return inThere ;
+            }
+        }
+
+
+        return inThere;
     }
 
     public static boolean isSorted(int [] array) {
