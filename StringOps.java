@@ -60,13 +60,11 @@ public class StringOps {
 
         for (int i = Startspace; i < string.length() ; i++) {
             Firststring += string.charAt(i);
-
+        }
         while ( Endspace < Firststring.length() && Firststring.charAt(Firststring.length() - 1 - Endspace) == ' '){
             Endspace ++;
         }
 
-
-        }
         String Seconedstring = "";
         for (int j = 0; j < Firststring.length() - Endspace; j++) {
             Seconedstring += LowerCase(Firststring.charAt(j));
