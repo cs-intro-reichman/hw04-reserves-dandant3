@@ -72,19 +72,20 @@ public class StringOps {
             Seconedstring += LowerCase(Firststring.charAt(j));
         }
         String Ansstring = " ";
+        boolean spaceEncounterd = false ;
         for (int k = 0; k < Seconedstring.length(); k++) {
+            char currentChar = Seconedstring.charAt(k);
             if( Seconedstring.charAt(k) == ' '){
-                if( Seconedstring.charAt(k +1 ) != ' ' && k + 1< Seconedstring.length()){
-                    Ansstring += ApperCase(Seconedstring.charAt( k + 1));
-                    k++;
+                spaceEncounterd= true;
+            } else {
+                if(spaceEncounterd){
+                    Ansstring += ApperCase(currentChar);
+                    spaceEncounterd = false;
                 } else{
-                    Ansstring += Seconedstring.charAt(k);
+                    Ansstring += currentChar;
                 }
-            } 
-            else{
-                Ansstring += Seconedstring.charAt(k);
             }
-         }
+        }
         return Ansstring;
         }
     
