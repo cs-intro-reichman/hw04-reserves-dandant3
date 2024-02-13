@@ -54,27 +54,29 @@ public class StringOps {
         String Firststring= "";
         int Startspace = 0 ;
         int Endspace = 0;
-        while(string.charAt(Startspace) == ' ' ) {
-            Startspace++;}
-        for (int i = Startspace; i < string.length() - Startspace - 1; i++) {
+        while(Startspace < string.length() && string.charAt(Startspace) == ' ' ) {
+            Startspace++;
+        }
+
+        while ( Startspace < string.length() && Firststring.charAt(Firststring.length() - 1 - Endspace) == ' '){
+            Endspace ++;
+        }
+
+        for (int i = Startspace; i < string.length() -Endspace; i++) {
             Firststring += string.charAt(i);
         }
         String Seconedstring = "";
-        while (Firststring.charAt(Firststring.length() -Endspace) == ' '){
-            Endspace ++;
-        }
-        for (int j = 0; j < Firststring.length() - Endspace - 1; j++) {
+        for (int j = 0; j < Firststring.length(); j++) {
             Seconedstring += LowerCase(Firststring.charAt(j));
         }
         String Ansstring = " ";
-        int k = 0;
-        while (k < Seconedstring.length()) {
+        for (int k = 0; k < Seconedstring.length(); k++) {
             if( Seconedstring.charAt(k) == ' '){
-                if( Seconedstring.charAt(k +1 ) == ' '){
-                 k++;
-                } else{
+                if( Seconedstring.charAt(k +1 ) != ' ' && k + 1< Seconedstring.length()){
                     Ansstring += ApperCase(Seconedstring.charAt( k + 1));
-                    k += 2;
+                    k++;
+                } else{
+                    Ansstring += Seconedstring.charAt(k);
                 }
             } 
             else{
