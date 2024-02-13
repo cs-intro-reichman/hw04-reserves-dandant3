@@ -36,17 +36,18 @@ public class ArrayOps {
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
         boolean inThere = true ;
-        boolean tempname = false ;
         for (int i = 0; i < array1.length; i++) {
+            boolean tempname = false ;
             for (int j = 0; j < array2.length; j++) {
-                tempname = false;
                 if(array1[i] == array2[j]){
                     tempname = true;
+                    break;
+                }
             }
             if (tempname == false){
                 inThere = false;
-                return inThere ;
-                 }
+                break;
+                 
             }
         }
 
