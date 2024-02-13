@@ -30,11 +30,12 @@ public class StringOps {
     public static String capVowelsLowRest (String string) {
         char[] finalarray= new char [string.length()];
         char[] vawlesarray= {'a','e','i','o','u','A','E','I','O','U'};
-        for (int i = 0; i < string.length() - 1; i++) {
+        for (int i = 0; i < string.length() ; i++) {
             finalarray[i] = string.charAt(i);
             for (int j = 0; j < vawlesarray.length; j++) {
                 if(finalarray[i] == vawlesarray[j]){
                     finalarray[i] = ApperCase(finalarray[i]);
+                    break;
                 } else {
                     finalarray [i] = LowerCase(finalarray[i]);
                 }
@@ -85,24 +86,23 @@ public class StringOps {
         }
     
 
-    public static int[] allIndexOf (String string, char chr) {
-        int[] firstarray = new int [string.length()];
-        int advance = 0;
-        for (int i = 0; i < string.length(); i++) {
-            if(string.charAt(i) == chr){
-                firstarray[advance] = i;
-                advance ++;
+        public static int[] allIndexOf(String string, char chr) {
+            int count = 0;
+            for (int i = 0; i < string.length(); i++) {
+                if (string.charAt(i) == chr) {
+                    count++;
+                }
             }
+            int[] answerArray = new int[count];
+            int index = 0;
+            for (int i = 0; i < string.length(); i++) {
+                if (string.charAt(i) == chr) {
+                    answerArray[index++] = i;
+                }
+            }
+            return answerArray;
         }
-        int[] anserarray = new int[ advance ];
-        for (int j = 0; j < advance; j++) {
-            anserarray[j] = firstarray[j];
-        }
-        
-            
-        
-        return anserarray ;
-    }
+     
 
     public static char ApperCase(char ch){
         if (ch >= 'a' && ch <= 'z') {
