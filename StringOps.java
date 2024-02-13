@@ -58,15 +58,17 @@ public class StringOps {
             Startspace++;
         }
 
-        while ( Startspace < string.length() && Firststring.charAt(Firststring.length() - 1 - Endspace) == ' '){
+        for (int i = Startspace; i < string.length() ; i++) {
+            Firststring += string.charAt(i);
+
+        while ( Endspace < Firststring.length() && Firststring.charAt(Firststring.length() - 1 - Endspace) == ' '){
             Endspace ++;
         }
 
-        for (int i = Startspace; i < string.length() -Endspace; i++) {
-            Firststring += string.charAt(i);
+
         }
         String Seconedstring = "";
-        for (int j = 0; j < Firststring.length(); j++) {
+        for (int j = 0; j < Firststring.length() - Endspace; j++) {
             Seconedstring += LowerCase(Firststring.charAt(j));
         }
         String Ansstring = " ";
@@ -81,7 +83,6 @@ public class StringOps {
             } 
             else{
                 Ansstring += Seconedstring.charAt(k);
-                k ++;
             }
          }
         return Ansstring;
