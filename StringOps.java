@@ -1,3 +1,5 @@
+import java.security.KeyException;
+
 public class StringOps {
     ////////////////////////////////////////////////////////////
     //////                                               ///////
@@ -22,21 +24,99 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        char[] finalarray= new char [string.length()];
+        char[] vawlesarray= {'a','e','i','o','u','A','E','I','O','U'};
+        for (int i = 0; i < string.length() - 1; i++) {
+            finalarray[i] = string.charAt(i);
+            for (int j = 0; j < vawlesarray.length; j++) {
+                if(finalarray[i] == vawlesarray[j]){
+                    finalarray[i] = ApperCase(finalarray[i]);
+                } else {
+                    finalarray [i] = LowerCase(finalarray[i]);
+                }
+            }
+            
+
+        }
+        String finalstring = "";
+        for (int k = 0; k < finalarray.length; k++) {
+            finalstring = finalstring + finalarray[k];
+        }
+        return finalstring;
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
-    }
+        String Firststring= "";
+        int Startspace = 0 ;
+        int Endspace = 0;
+        while(string.charAt(Startspace) == ' ' ) {
+            Startspace++;}
+        for (int i = Startspace; i < string.length() - Startspace - 1; i++) {
+            Firststring += string.charAt(i);
+        }
+        String Seconedstring = "";
+        while (Firststring.charAt(Firststring.length() -Endspace) == ' '){
+            Endspace ++;
+        }
+        for (int j = 0; j < Firststring.length() - Endspace - 1; j++) {
+            Seconedstring += LowerCase(Firststring.charAt(j));
+        }
+        String Ansstring = " ";
+        int k = 0;
+        while (k < Seconedstring.length()) {
+            if( Seconedstring.charAt(k) == ' '){
+                if( Seconedstring.charAt(k +1 ) == ' '){
+                 k++;
+                } else{
+                    Ansstring += ApperCase(Seconedstring.charAt( k + 1));
+                    k += 2;
+                }
+            } 
+            else{
+                Ansstring += Seconedstring.charAt(k);
+                k ++;
+            }
+         }
+        return Ansstring;
+        }
+    
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int[] firstarray = new int [string.length()];
+        int advance = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if(string.charAt(i) == chr){
+                firstarray[advance] = i;
+                advance ++;
+            }
+        }
+        int[] anserarray = new int[ advance ];
+        for (int j = 0; j < advance; j++) {
+            anserarray[j] = firstarray[j];
+        }
+        
+            
+        
+        return anserarray ;
     }
-}
+
+    public static char ApperCase(char ch){
+        if (ch >= 'a' && ch <= 'z') {
+            return (char)(ch - 32);
+        } else {
+            return ch;
+        }
+      }
+      public static char LowerCase(char ch){
+        if (ch >= 'A' && ch <= 'Z') {
+            return (char)(ch + 32 );
+        } else {
+            return ch;
+        }
+      }
+      
+    }

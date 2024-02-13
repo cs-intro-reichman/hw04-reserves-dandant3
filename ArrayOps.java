@@ -39,24 +39,45 @@ public class ArrayOps {
         boolean tempname = false ;
         for (int i = 0; i < array1.length; i++) {
             for (int j = 0; j < array2.length; j++) {
+                tempname = false;
                 if(array1[i] == array2[j]){
                     tempname = true;
             }
             if (tempname == false){
                 inThere = false;
                 return inThere ;
+             }
             }
-        }
-
 
         return inThere;
     }
 
     public static boolean isSorted(int [] array) {
-        // Write your code here:
-        return false;
+        boolean issorted = true;
+        boolean disenging = false;
+        boolean assending = false ;
+        if( array[0]> array[1]){
+            disenging = true;
+        }
+        if( disenging == true){
+        for (int i = 0; i < array.length; i++) {
+            if(array[i]>array[i+1]){
+                issorted = false;
+                break;
+             }
+            }
+        }
+        else{
+            for (int j = 0; j < array.length; j++) {
+                if(array[i] > array[i+1]){
+                    issorted = false;
+                    break;
+               }
+            }
+        }
+        return issorted;
     }
-    public static int sumArry(int[] array){
+    private static int sumArry(int[] array){
         int sum = 0 ;
         for (int i = 0; i < array.length; i++) {
         sum += array[i];
@@ -64,7 +85,7 @@ public class ArrayOps {
         return sum ;
     }
 
-    public static int maxvalue(int[] array){
+    private static int maxvalue(int[] array){
         int maxIndex = 0;
         int maxValue = array[0]; // Initialize max with the first element of the array
         for (int i = 1; i < array.length; i++) {
