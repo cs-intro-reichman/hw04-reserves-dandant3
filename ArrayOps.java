@@ -46,33 +46,32 @@ public class ArrayOps {
             if (tempname == false){
                 inThere = false;
                 return inThere ;
-             }
+                 }
             }
+        }
 
-        return inThere;
+        return inThere ;
     }
 
-    public static boolean isSorted(int [] array) {
+    public static boolean isSorted(int[] array) {
         boolean issorted = true;
-        boolean disenging = false;
-        boolean assending = false ;
-        if( array[0]> array[1]){
-            disenging = true;
+        boolean descending = false;
+        if (array[0] > array[1]) {
+            descending = true;
         }
-        if( disenging == true){
-        for (int i = 0; i < array.length; i++) {
-            if(array[i]>array[i+1]){
-                issorted = false;
-                break;
-             }
-            }
-        }
-        else{
-            for (int j = 0; j < array.length; j++) {
-                if(array[i] > array[i+1]){
+        if (descending) {
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] < array[i + 1]) {
                     issorted = false;
                     break;
-               }
+                }
+            }
+        } else {
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i + 1]) {
+                    issorted = false;
+                    break;
+                }
             }
         }
         return issorted;
@@ -95,6 +94,7 @@ public class ArrayOps {
             }
         }
         return maxValue;
-    }
+        
     
+    }   
 }
